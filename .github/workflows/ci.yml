@@ -21,7 +21,7 @@ jobs:
         java-version: '17'
 
     - name: Build with Gradle
-      run: gradle build 
+      run: gradle build
 
     - name: Upload Build Artifacts
       uses: actions/upload-artifact@v3
@@ -37,7 +37,7 @@ jobs:
       with:
         name: test-reports
         path: build/reports/tests/**
-        
+
     - name: Generate code coverage report
       run: gradle jacocoTestReport
 
@@ -46,7 +46,8 @@ jobs:
       with:
         name: code-coverage-report
         path: build/reports/jacoco/test/html/**
-        
+
     - name: Run Deployment
       run: java -jar build/libs/hello-world-java-V1.jar
+
 
